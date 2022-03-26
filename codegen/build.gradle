@@ -1,0 +1,32 @@
+plugins {
+    id 'java-library'
+}
+
+group 'systems.cauldron'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+
+    // code generation
+    implementation('org.openapitools:openapi-generator:5+')
+
+    // unit testing
+    testImplementation('org.junit.jupiter:junit-jupiter-api:5+')
+    testImplementation('org.junit.jupiter:junit-jupiter-params:5+')
+    testRuntimeOnly('org.junit.jupiter:junit-jupiter-engine:5+')
+}
+
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(17)
+    }
+    withSourcesJar()
+}
+
+test {
+    useJUnitPlatform()
+}
